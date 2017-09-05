@@ -38,7 +38,9 @@ let redditCall = (after)=>{
 
 //EVENT
 const loopRequest = new MyEmitter();
-//Boucle + Promesse = Evenement qui se rappel lui-même
+/*Boucle + Promesse = Evenement qui se rappel lui-même
+Si cette methode est moins efficace en terme de rapidité, elle permet de ne pas s'interroger
+sur la taille de mon tableau final par avance.*/
 
 loopRequest.on('next', (after) => {
     redditCall(after).then((res, err)=>{
